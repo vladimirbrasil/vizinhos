@@ -43,6 +43,14 @@ class Service < Sinatra::Base
 
   # return the entry ids the user voted up on
   get '/api/v1/vizinhos/' do
+
+	  per_page = (params[:per_page] || 10).to_i
+    page = (params[:page] || 1).to_i
+	  rua = params[:rua]
+	  numero = (params[:numero] || 0).to_i
+	  cidade = (params[:cidade] || "porto alegre")
+	  uf = (params[:uf] || "rs")
+
     page = (params[:page] || 1).to_i
     per_page = (params[:per_page] || 25).to_i
     user_id = params[:user_id]

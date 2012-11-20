@@ -2,6 +2,16 @@ require 'rubygems'
 require 'active_record'
 require 'yaml'
 
+
+# rspec | https://gist.github.com/2176510
+require 'rspec/core'
+require 'rspec/core/rake_task'
+task :default => :spec
+desc "Run all specs in spec directory (excluding plugin specs)"
+RSpec::Core::RakeTask.new(:spec)
+# fim rspec | https://gist.github.com/2176510
+
+
 desc "Load the environment"
 task :environment do
   env = ENV["SINATRA_ENV"] || "development"
